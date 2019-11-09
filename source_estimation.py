@@ -63,7 +63,7 @@ def ml_estimate(graph, obs_time, sigma, mu, paths, path_lengths,
         ### Covariance matrix
         cov_d_s = tl.cov_mat(tree_s, graph, paths, sorted_obs, s)
         #print('covariance')
-        print(cov_d_s)
+        #print(cov_d_s)
         D_s = np.diag(np.diag(cov_d_s))
         D_s_inv = np.linalg.inv(D_s)
         ### vector -> difference between observation time and mean arrival time for observers

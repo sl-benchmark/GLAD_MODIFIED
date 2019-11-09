@@ -13,7 +13,7 @@ node.
 import math
 import networkx as nx
 import numpy as np
-import GLAD_NAIVE.source_est_tools as tl
+import GLAD_MODIFIED.source_est_tools as tl
 import operator
 import collections
 

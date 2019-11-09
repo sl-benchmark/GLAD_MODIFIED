@@ -2,7 +2,7 @@ import networkx as nx
 import numpy as np
 import sys
 
-import GLAD_NAIVE.source_estimation as se
+import GLAD_MODIFIED.source_estimation as se
 import operator
 
 from multiprocessing import Pool

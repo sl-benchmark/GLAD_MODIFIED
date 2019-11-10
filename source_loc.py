@@ -23,6 +23,6 @@ def glad_modified(graph, obs_time, distribution) :
     s_est, likelihoods = se.ml_estimate(graph, obs_time, sigma, mu, paths,
         path_lengths)
 
-    ranked = sorted(likelihoods.items(), key=operator.itemgetter(1), reverse=True)
+    ranked = sorted(likelihoods.items(), key=operator.itemgetter(1))
 
     return (s_est, ranked)

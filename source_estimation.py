@@ -44,7 +44,7 @@ def ml_estimate(graph, obs_time, sigma, mu, paths, path_lengths,
     s_estimator = {}
 
     # candidate nodes does not contain observers nodes by assumption
-    candidate_nodes = np.array(np.list(set(np.arange(nodes)) - set(sorted_obs)))
+    candidate_nodes = np.array(list(set(np.arange(nodes)) - set(sorted_obs)))
 
     for s in candidate_nodes:
         ### BFS tree
@@ -64,7 +64,7 @@ def ml_estimate(graph, obs_time, sigma, mu, paths, path_lengths,
 
         ### Auxilary variable to make equation simpler to write
         z_s = ((w_s - (t0_s*I)).T) @ D_s_inv @ (w_s - (t0_s*I))
-        
+
         ### estimator for the source node
         s_estimator[s] = len(sorted_obs)*np.log(z_s) + np.log(np.linalg.det(D_s))
 

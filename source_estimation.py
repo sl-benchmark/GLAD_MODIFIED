@@ -73,7 +73,10 @@ def ml_estimate(graph, obs_time, sigma, mu, paths, path_lengths,
     #posterior = posterior_from_logLH(s_estimator)
     optimal_source = min(s_estimator.values())
     source_candidates = list()
-    source_candidates.append(optimal_source)
+    ### Finds nodes where the source is optimal
+    for src, value in s_estimator.items():
+        if value == optimal_source:
+            source_candidates.append(src)
 
     return source_candidates, s_estimator
 

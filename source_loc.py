@@ -3,7 +3,6 @@ import numpy as np
 import sys
 
 import GLAD_MODIFIED.source_estimation as se
-import operator
 
 from multiprocessing import Pool
 from termcolor import colored

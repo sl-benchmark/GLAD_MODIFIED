@@ -69,7 +69,7 @@ def ml_estimate(graph, obs_time, sigma, mu, paths, path_lengths,
         s_estimator[s] = len(sorted_obs)*np.log(z_s) + np.log(np.linalg.det(D_s))
 
     scores = sorted(s_estimator.items(), key=operator.itemgetter(1))
-    source_candidate = list(scores.keys())[0]
+    source_candidate = scores[0][0]
 
     return source_candidate, scores
 

@@ -68,17 +68,10 @@ def ml_estimate(graph, obs_time, sigma, mu, paths, path_lengths,
         ### estimator for the source node
         s_estimator[s] = len(sorted_obs)*np.log(z_s) + np.log(np.linalg.det(D_s))
 
+    scores = sorted(s_estimator.items(), key=operator.itemgetter(1))
+    source_candidate = list(scores.keys())[0]
 
-    ### Find the nodes where the source estimator is the lowest
-    #posterior = posterior_from_logLH(s_estimator)
-    optimal_source = min(s_estimator.values())
-    source_candidates = list()
-    ### Finds nodes where the source is optimal
-    for src, value in s_estimator.items():
-        if value == optimal_source:
-            source_candidates.append(src)
-
-    return source_candidates, s_estimator
+    return source_candidate, scores
 
 #################################################### Helper methods for ml algo
 def posterior_from_logLH(loglikelihood):

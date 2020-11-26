@@ -18,7 +18,10 @@ import operator
 import collections
 
 import scipy.stats as st
-from scipy.misc import logsumexp
+try:
+    from scipy.misc import logsumexp
+except (SystemError, ImportError): #ImportError
+    from scipy.special import logsumexp
 
 def ml_estimate(graph, obs_time, sigma, mu, paths, path_lengths,
         max_dist=np.inf):
